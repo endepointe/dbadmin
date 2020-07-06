@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import React from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
   form: {
@@ -16,6 +17,8 @@ const useStyles = makeStyles(() => ({
 }))
 
 const Login = (props: any) => {
+
+  let history = useHistory();
 
   const classes = useStyles();
 
@@ -36,7 +39,7 @@ const Login = (props: any) => {
           console.log(res.data);
           props.handleLogin(res.data)
           // render home page
-          props.history.push('/home');
+          history.push('/home');
         }
         if (res.data.status === 0) {
           console.log(res.data.msg);

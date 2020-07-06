@@ -31,7 +31,7 @@ router.post('/register', async (req, res) => {
                 let at = email.indexOf('@');
                 res.status(200).send({
                   status: 1,
-                  msg: `Welcome, ${email.slice(0, at)}`
+                  msg: email.slice(0, at)
                 });
               })
               .catch((error) => {
@@ -63,7 +63,7 @@ router.post('/login', (req, res) => {
               console.log(email.slice(0, at));
               res.status(200).send({
                 status: 1,
-                msg: `Welcome, ${email.slice(0, at)}`
+                msg: email.slice(0, at)
               });
             } else {
               res.status(200).send({

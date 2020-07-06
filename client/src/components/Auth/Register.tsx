@@ -5,6 +5,9 @@ import React,
 {
   useState
 } from 'react';
+import {
+  useHistory
+} from 'react-router-dom';
 import axios from 'axios';
 
 const useStyles = makeStyles(() => ({
@@ -19,6 +22,8 @@ const useStyles = makeStyles(() => ({
 }))
 
 const Register = (props: any) => {
+
+  let history = useHistory();
 
   const classes = useStyles();
 
@@ -38,7 +43,9 @@ const Register = (props: any) => {
       })
         .then((res) => {
           if (res.data.status === 1) {
-            console.log(res.data.msg);
+            console.log(res.data);
+            props.handleLogin(res.data);
+            history.push('/home');
           }
           if (res.data.status === 0) {
             console.log(res.data.msg);
@@ -68,6 +75,7 @@ const Register = (props: any) => {
         // value="test@test.com"
         // value="endepointe@gmail.com"
         value="ende@ende.com"
+        // value="1@1.com"
         // value="ende@test.com"
         placeholder="Email"
       ></TextField>

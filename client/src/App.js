@@ -13,6 +13,7 @@ import {
   Route,
 } from 'react-router-dom';
 import AuthForm from './components/Auth/AuthForm';
+import Home from './components/Layouts/Home';
 
 // const AdminContext = createContext({
 //   admin: '',
@@ -27,20 +28,27 @@ const useStyles = makeStyles(() => ({
 }));
 
 const App = () => {
+
   const classes = useStyles();
-  // Questioning the need for context
+  // Context to be implemented
   // const adminContext = useContext(AdminContext);
 
-  const [admin, setAdmin] = useState({});
+  const [admin, setAdmin] = useState({ status: 0, msg: '' });
   const [login, allowLogin] = useState(false);
 
   const handleLogin = (obj) => {
-    setAdmin(obj);
-    if (admin.status === 1) {
-      allowLogin(true);
-
-    }
+    console.log('handleLogin: ', obj);
+    setAdmin({
+      status: obj.status, // for now
+      msg: obj.msg
+    });
+    allowLogin(true);
   }
+
+  // If user tries to access a router manually
+  // without authentication, redirect user to 
+  // the login page.
+  // const checkAuthStatus = () => {}
 
   return (
     <Container className={classes.app}>
@@ -56,12 +64,10 @@ const App = () => {
         <Route
           path="/home"
           render={(props) =>
-            <div
-            // {...props}
-            // admin={admin}
-            >home</div>
+            <Home
+              user={admin.msg}
+              {...props} />
           } />
-
       </Router>
     </Container>
   );
