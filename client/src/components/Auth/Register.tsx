@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-const Register = () => {
+const Register = (props: any) => {
 
   const classes = useStyles();
 

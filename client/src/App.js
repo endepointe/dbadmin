@@ -4,15 +4,20 @@ import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import React,
 {
-  createContext,
-  useContext,
+  // createContext,
+  // useContext,
+  useState,
 } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+} from 'react-router-dom';
 import AuthForm from './components/Auth/AuthForm';
 
-const AdminContext = createContext({
-  admin: '',
-  authenticated: false,
-});
+// const AdminContext = createContext({
+//   admin: '',
+//   authenticated: false,
+// });
 
 const useStyles = makeStyles(() => ({
   app: {
@@ -23,12 +28,41 @@ const useStyles = makeStyles(() => ({
 
 const App = () => {
   const classes = useStyles();
-  const adminContext = useContext(AdminContext);
-  console.log(adminContext);
+  // Questioning the need for context
+  // const adminContext = useContext(AdminContext);
+
+  const [admin, setAdmin] = useState({});
+  const [login, allowLogin] = useState(false);
+
+  const handleLogin = (obj) => {
+    setAdmin(obj);
+    if (admin.status === 1) {
+      allowLogin(true);
+
+    }
+  }
+
   return (
     <Container className={classes.app}>
       <CssBaseline />
-      <AuthForm />
+      <Router>
+        <Route
+          exact path="/"
+          render={(props) =>
+            <AuthForm
+              {...props}
+              handleLogin={handleLogin} />
+          } />
+        <Route
+          path="/home"
+          render={(props) =>
+            <div
+            // {...props}
+            // admin={admin}
+            >home</div>
+          } />
+
+      </Router>
     </Container>
   );
 }

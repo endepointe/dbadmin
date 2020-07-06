@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const AuthForm = () => {
+const AuthForm = (props: any) => {
 
   const classes = useStyles();
 
@@ -47,7 +47,14 @@ const AuthForm = () => {
       className={classes.formPaper}
       elevation={6}
     >
-      {login ? <Login /> : <Register />}
+      {login ?
+        <Login
+          {...props}
+          handleLogin={props.handleLogin} /> :
+        <Register
+          {...props}
+          handleLogin={props.handleLogin}
+        />}
       <Typography align="center">
         <Link
           id='authTypeBtn'

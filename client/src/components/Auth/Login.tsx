@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-const Login = () => {
+const Login = (props: any) => {
 
   const classes = useStyles();
 
@@ -33,8 +33,10 @@ const Login = () => {
         console.log(res);
         if (res.data.status === 1) {
           // success
-          console.log(res.data.msg);
-          // render admin page
+          console.log(res.data);
+          props.handleLogin(res.data)
+          // render home page
+          props.history.push('/home');
         }
         if (res.data.status === 0) {
           console.log(res.data.msg);
