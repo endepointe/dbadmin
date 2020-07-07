@@ -73,8 +73,8 @@ const Register = (props: any) => {
         type="email"
         // value while testing
         // value="test@test.com"
-        // value="endepointe@gmail.com"
-        value="ende@ende.com"
+        value="endepointe@gmail.com"
+        // value="ende@ende.com"
         // value="1@1.com"
         // value="ende@test.com"
         placeholder="Email"

@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
   button: {
     margin: '1rem auto'
   }
-}))
+}));
 
 const Login = (props: any) => {
 
