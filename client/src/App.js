@@ -65,6 +65,7 @@ const App = () => {
           path="/home"
           render={(props) =>
             <Home
+              admin={login}
               user={admin.msg}
               {...props} />
           } />
