@@ -13,7 +13,7 @@ import {
   Route,
 } from 'react-router-dom';
 import AuthForm from './components/Auth/AuthForm';
-import Home from './components/Layouts/Home';
+import AdminHome from './components/Layouts/AdminHome';
 
 // const AdminContext = createContext({
 //   admin: '',
@@ -64,8 +64,8 @@ const App = () => {
         <Route
           path="/home"
           render={(props) =>
-            <Home
-              admin={login}
+            <AdminHome
+              login={login}
               user={admin.msg}
               {...props} />
           } />
