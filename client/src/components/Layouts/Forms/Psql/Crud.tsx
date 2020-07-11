@@ -3,6 +3,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
+import ViewTables from './ViewTables';
 import CreateTable from './CreateTable';
 
 const Crud = () => {
@@ -10,7 +11,7 @@ const Crud = () => {
   return (
     <Switch>
       <Route path="/home/postgresql/view-tables">
-        {'view tables'}
+        <ViewTables />
       </Route>
       <Route path="/home/postgresql/create-table">
         <CreateTable />

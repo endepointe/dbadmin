@@ -48,11 +48,11 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const CreateTable = (props: any) => {
+const CreateTable = () => {
 
   const classes = useStyles();
   const [type, setType] = useState('');
-  const [tableData, setTableData] = useState({});
+  // const [tableData, setTableData] = useState({});
 
   const createTable = (e: any) => {
     e.preventDefault();
@@ -70,7 +70,7 @@ const CreateTable = (props: any) => {
     e.target.elements.value.value = null;
     e.target.elements.type.value = null;
     // setTableData(data);
-    // console.log(tableData)
+    console.log(data)
   }
 
   const changeType = (e: React.ChangeEvent<{ value: unknown }>) => {

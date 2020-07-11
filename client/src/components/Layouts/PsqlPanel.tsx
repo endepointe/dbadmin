@@ -69,32 +69,22 @@ const useStyles = makeStyles(() => ({
 const PsqlPanel = () => {
 
   const classes = useStyles();
-  const [tables, setTables] = useState([]);
+  // const [tableNames, setTableNames] = useState({});
 
-  useEffect(() => {
-    axios.get('/tables/view-tables')
-      .then((response) => {
-        console.log(response);
-        setTables(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-  // const viewAllTables = (e: any) => {
-  //   e.preventDefault();
-  //   console.log(tables);
-  // axios.get('/tables/view-tables')
-  //   .then((response) => {
-  //     console.log(response);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
-  // }
-
-  console.log(tables)
+  // useEffect(() => {
+  //   axios.get('/tables/view-tables')
+  //     .then((res) => {
+  //       let names: string[] = [];
+  //       const iterator = res.data.values();
+  //       for (const value of iterator) {
+  //         names.push(value.tablename);
+  //       }
+  //       setTableNames(names);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, []);
 
   return (
     <Box>

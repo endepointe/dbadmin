@@ -41,5 +41,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:4003"
+  "proxy": "http://localhost:4003",
+  "devDependencies": {
+    "uglifyjs-webpack-plugin": "^2.2.0"
+  }
 }
