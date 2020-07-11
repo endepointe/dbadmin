@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 const ViewTables = () => {
 
   const classes = useStyles();
-  // const [tableNames, setTableNames] = useState({});
+  //https://www.typescriptlang.org/docs/handbook/generics.html
   const [tableNames, setTableNames] = useState<string[]>([]);
 
   useEffect(() => {
@@ -34,11 +34,9 @@ const ViewTables = () => {
         try {
           const names: Array<string> = [];
           const iterator = res.data.values();
-          console.log(Array.isArray(names));
           for (const value of iterator) {
             names.push(value.tablename);
           }
-          console.log(typeof names, names)
           setTableNames(names);
         } catch (err) {
           console.log(err);
@@ -48,8 +46,6 @@ const ViewTables = () => {
         console.log(error);
       });
   }, []);
-
-  console.log(tableNames);
 
   return (
     <TableContainer component={Paper}>
