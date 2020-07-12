@@ -31,16 +31,12 @@ const ViewTables = () => {
   useEffect(() => {
     axios.get('/tables/view-tables')
       .then((res) => {
-        try {
-          const names: Array<string> = [];
-          const iterator = res.data.values();
-          for (const value of iterator) {
-            names.push(value.tablename);
-          }
-          setTableNames(names);
-        } catch (err) {
-          console.log(err);
+        const names: Array<string> = [];
+        const iterator = res.data.values();
+        for (const value of iterator) {
+          names.push(value.tablename);
         }
+        setTableNames(names);
       })
       .catch((error) => {
         console.log(error);
