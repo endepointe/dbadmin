@@ -1,15 +1,15 @@
 import { makeStyles } from '@material-ui/core/styles';
 import React,
 {
-  useEffect,
-  useState,
+  // useEffect,
+  // useState,
 } from 'react';
 import {
   Link
 } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
 import Crud from './Forms/Psql/Crud';
-import axios from 'axios';
+// import axios from 'axios';
 /*
   Pre-conditions: 
     - the user has ownership of only one database
@@ -69,22 +69,6 @@ const useStyles = makeStyles(() => ({
 const PsqlPanel = () => {
 
   const classes = useStyles();
-  // const [tableNames, setTableNames] = useState({});
-
-  // useEffect(() => {
-  //   axios.get('/tables/view-tables')
-  //     .then((res) => {
-  //       let names: string[] = [];
-  //       const iterator = res.data.values();
-  //       for (const value of iterator) {
-  //         names.push(value.tablename);
-  //       }
-  //       setTableNames(names);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, []);
 
   return (
     <Box>
